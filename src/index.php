@@ -1,12 +1,13 @@
 <?php
 
-include "./includes/conn.php";
+$conn = new PDO('mysql:dbname=PartielPHP;host=127.0.0.1:8889;charset=UTF8', 'root', 'root');
 
 function question1(string $nom, string $identite_secrete, int $id_super_pouvoir)//:bool
 {
-    // >>> Require $conn comme connexion PDO avec la DB.
     try
     {
+        $conn = new PDO('mysql:dbname=PartielPHP;host=127.0.0.1:8889;charset=UTF8', 'root', 'root');
+
         $sql = "INSERT
         INTO `super_hero`
         (`nom`,
@@ -31,4 +32,27 @@ function question1(string $nom, string $identite_secrete, int $id_super_pouvoir)
         return false;
     }
 
+}
+
+function question2(string $nom)//:[]
+{
+    try
+    {
+        $conn = new PDO('mysql:dbname=PartielPHP;host=127.0.0.1:8889;charset=UTF8', 'root', 'root');
+
+        $sql = "SELECT
+        (`id`,
+        `nom`,
+        `identite_secrete`,
+        `id_super_pouvoir`)
+        FROM `super_hero`
+        WHERE `nom`=".$nom."LIMIT 1";
+
+        return $conn->query($sql);
+    }
+    catch (PDOException $e)
+    {
+        echo $e->getMessage();
+        return [];
+    }
 }
