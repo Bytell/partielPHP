@@ -1,7 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Surf
- * Date: 19/02/2016
- * Time: 13:11
- */
+try
+{
+    $conn = new PDO('mysql:dbname=PartielPHP;host=127.0.0.1:8889;charset=UTF8', 'root', 'root');
+}
+catch (PDOException $e)
+{
+    echo 'Connexion échouée : '.$e->getMessage();
+}
