@@ -1,0 +1,9 @@
+Question 1  : INSERT INTO `super_hero`(`id`, `nom`, `identite_secrete`, `id_super_pouvoir`) VALUES ([value-1],[value-2],[value-3],[value-4])
+
+Question 2  : SELECT *
+FROM `super_hero`
+INNER JOIN `Super_pouvoir`
+WHERE `super_hero`.`id` = `Super_pouvoir`.id
+
+
+Question 3 : UPDATE `super_hero` SET `id`=[value-1],`nom`=[value-2],`identite_secrete`=[value-3],`id_super_pouvoir`=[value-4] WHERE 1
